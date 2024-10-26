@@ -13,7 +13,7 @@ interface BookStore {
   setRecommendedBooks: (books: Book[]) => void;
 }
 
-export const useBookStore = create<BookStore>((set) => ({
+export const useStore = create<BookStore>((set) => ({
   recommendedBooks: [],
   setRecommendedBooks: (books) => set({ recommendedBooks: books }),
 }));

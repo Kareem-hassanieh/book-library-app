@@ -1,5 +1,5 @@
 
-
+import Header from './components/Header';
 import './App.css'
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      hi
+      <Header/>
     </>
   )
 }
