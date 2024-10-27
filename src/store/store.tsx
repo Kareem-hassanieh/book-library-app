@@ -1,26 +1,23 @@
-import {create} from 'zustand';
-
+import { create } from 'zustand';
 
 interface Book {
-  key:string;
-  title:string;
-  authors:string;
-  cover_id?:string;
+  key: string;
+  title: string;
+  authors: { name: string }[];
+  cover_id?: string;
 }
 
 interface BookStore {
   recommendedBooks: Book[];
-  searchResults: Book[]; 
-  searchPerformed: boolean;
+  searchedBooks: Book[]; // <-- Step 1: Add state for searched books
   setRecommendedBooks: (books: Book[]) => void;
-  setSearchResults: (books: Book[]) => void;
-  setSearchPerformed: (performed: boolean) => void; 
+  setSearchedBooks: (books: Book[]) => void; // <-- Step 1: Add setter for searched books
 }
+
 export const useStore = create<BookStore>((set) => ({
   recommendedBooks: [],
-  searchResults: [],
-  searchPerformed: false,
+  searchedBooks: [], // <-- Step 1: Initialize empty array
+
   setRecommendedBooks: (books) => set({ recommendedBooks: books }),
-  setSearchResults: (books) => set({ searchResults: books }),
-  setSearchPerformed: (performed) => set({ searchPerformed: performed }),
+  setSearchedBooks: (books) => set({ searchedBooks: books }), // <-- Step 1: Setter function
 }));
