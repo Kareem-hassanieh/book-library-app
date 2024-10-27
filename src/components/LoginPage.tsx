@@ -6,14 +6,17 @@ function LoginPage() {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    // Add login validation logic here (if needed)
-    
-    // On successful login, redirect to home page
+
     navigate('/home');
   };
   
   return (
-    <form onSubmit={handleLogin} className='flex flex-col w-[50%] m-auto justify-center items-center'>
+    <div 
+    className='h-screen flex justify-center items-center bg-cover bg-center bg-no-repeat' 
+  style={{ backgroundImage: "url('painting-book-titled-title-title_1083198-3647.avif')" }}>
+
+        <form onSubmit={handleLogin} className=' flex flex-col w-[50%] m-auto justify-center items-center'>
+         
       <div className="mb-4 w-[300px]">
         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
         <input 
@@ -38,11 +41,14 @@ function LoginPage() {
       </div>
       <button 
         type="submit" 
-        className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors w-[70px] m-[auto]">
+        className=" bg-[#7D5F46] text-white py-2 rounded-md transition-colors w-[70px] m-[auto]">
       
         Login
       </button>
     </form>
+
+    </div>
+  
   );
 }
 
