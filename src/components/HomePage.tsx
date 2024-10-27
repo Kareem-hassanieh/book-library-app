@@ -1,10 +1,12 @@
+// HomePage.tsx
 import React, { useState, useEffect } from 'react';
 import { useStore } from '../store/store';
+import { Link } from 'react-router-dom'; // Import Link
 import './HomePage.css';
 
 function HomePage() {
   const { setRecommendedBooks, recommendedBooks, setSearchedBooks, searchedBooks } = useStore();
-  const [searchQuery, setSearchQuery] = useState(''); // Step 2.1: State to track search input
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     async function fetchRecommendedBooks() {
@@ -20,12 +22,11 @@ function HomePage() {
     fetchRecommendedBooks();
   }, [setRecommendedBooks]);
 
-  // Step 2.2: Function to handle search API call
   const handleSearch = async () => {
     try {
       const response = await fetch(`https://openlibrary.org/search.json?q=${searchQuery}`);
       const data = await response.json();
-      setSearchedBooks(data.docs); // Save fetched books to Zustand store
+      setSearchedBooks(data.docs);
     } catch (error) {
       console.log('Error searching for books:', error);
     }
@@ -40,7 +41,7 @@ function HomePage() {
             type="text" 
             placeholder="Search for books ..." 
             value={searchQuery} 
-            onChange={(e) => setSearchQuery(e.target.value)} // Step 2.1: Track input change
+            onChange={(e) => setSearchQuery(e.target.value)} 
           />
           <button className='bg-[black] text-white' onClick={handleSearch}>Search</button>
         </div>
@@ -48,7 +49,6 @@ function HomePage() {
       </header>
 
       <div className='grid-container'>
-       
         {searchedBooks.length > 0 ? (
           searchedBooks.map((book) => (
             <div key={book.key} className='grid-item flex flex-col justify-center items-center'>
@@ -61,6 +61,8 @@ function HomePage() {
                     alt={`${book.title} cover`} 
                   />
                   <p>{book.author_name && book.author_name[0]}</p>
+                  {/* Add View Details button */}
+                  <Link to={`/book/${book.key.split('/').pop()}`} className='btn'>View Details</Link>
                 </div>
               )}
             </div>
@@ -77,6 +79,8 @@ function HomePage() {
                     alt={`${book.title} cover`} 
                   />
                   <p>{book.authors[0].name}</p>
+                  {/* Add View Details button */}
+                  <Link to={`/book/${book.key.split('/').pop()}`} className='btn'>View Details</Link>
                 </div>
               )}
             </div>
