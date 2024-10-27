@@ -1,6 +1,7 @@
 
 import React,{useEffect} from 'react'
 import {useStore} from '../store/store'
+import './HomePage.css'
 
 function HomePage() {
   const { setRecommendedBooks, recommendedBooks } =useStore();
@@ -22,18 +23,19 @@ function HomePage() {
 
   },[setRecommendedBooks]);
   return (
-    <div className='grid'>
+    <div className='grid-container'>
     {recommendedBooks.map((book) => (
-      <div key={book.key}>
+      <div key={book.key} className='grid-item flex flex-col justify-center items-center'>
         <h3>{book.title}</h3>
        
-        <p>{book.authors[0].name}</p>
+       
         {book.cover_id && (
-          <div className='h-[200px] w-[100px]'>
+          <div className='h-[200px] w-[100px] '>
             <img className='w-[100%] object-cover'
             src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} 
             alt={`${book.title} cover`} 
           />
+           <p>{book.authors[0].name}</p>
 
           </div>
           
