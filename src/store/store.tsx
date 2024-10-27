@@ -4,7 +4,7 @@ import {create} from 'zustand';
 interface Book {
   key:string;
   title:string;
-  author?:string;
+  authors:string;
   cover_id?:string;
 }
 
