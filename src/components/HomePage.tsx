@@ -1,10 +1,10 @@
-// HomePage.tsx
+
 import React, { useState, useEffect } from 'react';
 import { useStore } from '../store/store';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom'; 
 import './HomePage.css';
 
-function HomePage() {
+function HomePage() {``
   const { setRecommendedBooks, recommendedBooks, setSearchedBooks, searchedBooks } = useStore();
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -51,38 +51,44 @@ function HomePage() {
       <div className='grid-container'>
         {searchedBooks.length > 0 ? (
           searchedBooks.map((book) => (
-            <div key={book.key} className='grid-item flex flex-col justify-center items-center'>
-              <h3>{book.title}</h3>
+            <div key={book.key} className='grid-item flex flex-col justify-center items-center justify-between border w-[100%] '>
+              
               {book.cover_i && (
-                <div className='h-[200px] w-[100px]'>
+                <div className='h-[270px] w-[180px] overflow-hidden'>
                   <img 
-                    className='w-[100%] object-cover' 
+                    className='w-[100%] h-[100%] object-cover' 
                     src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} 
                     alt={`${book.title} cover`} 
                   />
-                  <p>{book.author_name && book.author_name[0]}</p>
-                  {/* Add View Details button */}
-                  <Link to={`/book/${book.key.split('/').pop()}`} className='btn'>View Details</Link>
+             
                 </div>
               )}
+             
+              <h3>{book.title}</h3>
+              <p>{book.author_name && book.author_name[0]}</p>
+              <Link to={`/book/${book.key.split('/').pop()}`} className='btn'>View Details</Link>
+          
+              
             </div>
           ))
         ) : (
           recommendedBooks.map((book) => (
-            <div key={book.key} className='grid-item flex flex-col justify-center items-center'>
+            <div key={book.key} className='grid-item flex flex-col justify-center items-center border w-[100%] h-[100%]'>
               <h3>{book.title}</h3>
               {book.cover_id && (
-                <div className='h-[200px] w-[100px]'>
+                <div className='h-[150px] w-[100px] overflow-hidden'>
                   <img 
-                    className='w-[100%] object-cover' 
+                    className='w-[100%] h-[100%] object-cover' 
                     src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} 
                     alt={`${book.title} cover`} 
                   />
-                  <p>{book.authors[0].name}</p>
-                  {/* Add View Details button */}
-                  <Link to={`/book/${book.key.split('/').pop()}`} className='btn'>View Details</Link>
+                  
                 </div>
               )}
+              <p>{book.authors[0].name}</p>
+                  
+
+                  <Link to={`/book/${book.key.split('/').pop()}`} className='btn'>View Details</Link>
             </div>
           ))
         )}
