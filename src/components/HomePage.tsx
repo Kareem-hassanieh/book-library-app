@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { useStore } from '../store/store';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
 import './HomePage.css';
 
-function HomePage() {``
+function HomePage() {
+
   const { setRecommendedBooks, recommendedBooks, setSearchedBooks, searchedBooks } = useStore();
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -34,61 +35,75 @@ function HomePage() {``
 
   return (
     <>
-      <header className='flex justify-between mb-[30px] mt-[30px]'>
-        <h1>Online Book Library</h1>
-        <div>
-          <input 
-            type="text" 
-            placeholder="Search for books ..." 
-            value={searchQuery} 
-            onChange={(e) => setSearchQuery(e.target.value)} 
+      <header className="flex justify-between items-center mb-8  p-4 bg-gray-100  rounded-lg gap-[10px]">
+        <h1 className="text-3xl font-bold text-gray-800"> Library</h1>
+        <div className="flex items-center space-x-2">
+          <input
+            type="text"
+            placeholder="Search for books ..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500"
           />
-          <button className='bg-[black] text-white' onClick={handleSearch}>Search</button>
+          <button
+            className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition duration-200"
+            onClick={handleSearch}
+          >
+            Search
+          </button>
         </div>
-        <h2>username</h2>
+        <h2 className="text-xl italic text-gray-600">"Readers are leaders."</h2>
       </header>
+
 
       <div className='grid-container'>
         {searchedBooks.length > 0 ? (
           searchedBooks.map((book) => (
-            <div key={book.key} className='grid-item flex flex-col justify-center items-center justify-between border w-[100%] '>
-              
+            <div key={book.key} className='grid-item flex flex-col items-center justify-between border w-[100%] p-[10px] rounded-lg gap-[10px]'>
+
               {book.cover_i && (
                 <div className='h-[270px] w-[180px] overflow-hidden'>
-                  <img 
-                    className='w-[100%] h-[100%] object-cover' 
-                    src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`} 
-                    alt={`${book.title} cover`} 
+                  <img
+                    className='w-[100%] h-[100%] object-cover'
+                    src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
+                    alt={`${book.title} cover`}
                   />
-             
+
                 </div>
               )}
-             
-              <h3>{book.title}</h3>
-              <p>{book.author_name && book.author_name[0]}</p>
-              <Link to={`/book/${book.key.split('/').pop()}`} className='btn'>View Details</Link>
-          
-              
+               <div className='flex flex-col justify-center items-center gap-[2px] w-[100%]'>
+
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">{book.title}</h3>
+                <p className="text-lg text-gray-600">{book.author_name && book.author_name[0]}</p>
+
+                <Link to={`/book/${book.key.split('/').pop()}`} className='btn ml-[auto] bg-[black] text-white p-[7px] rounded-xl mt-[10px]'>View Details</Link>
+              </div>
+
+
+
             </div>
           ))
         ) : (
           recommendedBooks.map((book) => (
-            <div key={book.key} className='grid-item flex flex-col justify-center items-center border w-[100%] h-[100%]'>
-              <h3>{book.title}</h3>
+            <div key={book.key} className='grid-item flex flex-col items-center justify-between border w-[100%] p-[10px] rounded-lg gap-[10px]'>
+
               {book.cover_id && (
-                <div className='h-[150px] w-[100px] overflow-hidden'>
-                  <img 
-                    className='w-[100%] h-[100%] object-cover' 
-                    src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`} 
-                    alt={`${book.title} cover`} 
+                <div className='h-[270px] w-[180px] overflow-hidden'>
+                  <img
+                    className='w-[100%] h-[100%] object-cover'
+                    src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`}
+                    alt={`${book.title} cover`}
                   />
-                  
+
                 </div>
               )}
-              <p>{book.authors[0].name}</p>
-                  
+              <div className='flex flex-col justify-center items-center gap-[2px] w-[100%]'>
 
-                  <Link to={`/book/${book.key.split('/').pop()}`} className='btn'>View Details</Link>
+                <h3 className="text-2xl font-bold text-gray-800 mb-2">{book.title}</h3>
+                <p className="text-lg text-gray-600">{book.author_name && book.author_name[0]}</p>
+
+                <Link to={`/book/${book.key.split('/').pop()}`} className='btn ml-[auto] bg-[black] text-white p-[7px] rounded-xl mt-[10px]'>View Details</Link>
+              </div>
             </div>
           ))
         )}
