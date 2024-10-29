@@ -71,10 +71,16 @@ function HomePage() {
 
                 </div>
               )}
-               <div className='flex flex-col justify-center items-center gap-[2px] w-[100%]'>
+              <div className='flex flex-col justify-center items-center gap-[2px] w-[100%]'>
 
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">{book.title}</h3>
-                <p className="text-lg text-gray-600">{book.author_name && book.author_name[0]}</p>
+
+
+                <p className="text-lg text-gray-600">
+                  <Link to={`/author/${book.author_name && book.author_name[0]}`}>
+                    {book.author_name && book.author_name[0]}
+                  </Link>
+                </p>
 
                 <Link to={`/book/${book.key.split('/').pop()}`} className='btn ml-[auto] bg-[black] text-white p-[7px] rounded-xl mt-[10px]'>View Details</Link>
               </div>

@@ -3,6 +3,7 @@ import HomePage from './components/HomePage';
 import './App.css'
 import BookDetails from './components/BookDetails';
 import LoginPage from './components/LoginPage';
+import AuthorBooks from './components/AuthorBooks';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Route path="/" element={<LoginPage />} />
       <Route path="/home" element={<HomePage />} />
       <Route path="/book/:id" element={<BookDetails />} /> 
+      <Route path="/author/:name" element={<AuthorBooks />} />
     </Routes>
   </Router>
    
