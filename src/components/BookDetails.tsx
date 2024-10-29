@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 interface Book {
   title: string;
   cover_id?: string;
-  description?: { value: string }; // Adjust based on the actual API response
+  description?: { value: string }; 
 }
 
 const BookDetails: React.FC = () => {
@@ -28,18 +28,33 @@ const BookDetails: React.FC = () => {
   }, [id]);
 
   return (
-    <div>
+      <div className='flex flex-col'>
+
       {book ? (
         <>
-          <h1>{book.title}</h1>
-          
+          <h1 className='text-center font-bold mb-[30px] text-[30px]'>{book.title}</h1>
+          <div class="flex flex-col md:flex-row">
           {book.covers && (
-            <img 
+            <div className='h-[500px] w-[350px] flex justify-center items-center m-auto '>
+              <img className='h-[100%] w-[100%] object-cover rounded-lg'
               src={`https://covers.openlibrary.org/b/id/${book.covers[0]}-L.jpg`} 
               alt={`${book.title} cover`} 
             />
+
+            </div>
+            
           )}
-          <p>{book.description}</p>
+          <div className='md:w-[50%] flex flex-col m-auto '>
+          <p className='mt-[20px]' >{book.description}</p>
+          <button className='bg-[black] text-white w-[200px] ml-[auto] p-[10px] rounded-lg'>Add to favorites</button>
+
+          </div>
+          
+
+
+          </div>
+          
+         
          
          
         </>

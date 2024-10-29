@@ -12,7 +12,7 @@ function HomePage() {
   useEffect(() => {
     async function fetchRecommendedBooks() {
       try {
-        const response = await fetch('https://openlibrary.org/subjects/fantasy.json?limit=7');
+        const response = await fetch('https://openlibrary.org/subjects/love.json?limit=7');
         const data = await response.json();
         setRecommendedBooks(data.works);
       } catch (error) {

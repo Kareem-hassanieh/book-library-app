@@ -9,9 +9,9 @@ interface Book {
 
 interface BookStore {
   recommendedBooks: Book[];
-  searchedBooks: Book[]; // <-- Step 1: Add state for searched books
+  searchedBooks: Book[]; 
   setRecommendedBooks: (books: Book[]) => void;
-  setSearchedBooks: (books: Book[]) => void; // <-- Step 1: Add setter for searched books
+  setSearchedBooks: (books: Book[]) => void;
 }
 
 export const useStore = create<BookStore>((set) => ({
