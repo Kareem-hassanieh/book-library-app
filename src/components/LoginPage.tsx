@@ -13,7 +13,7 @@ function LoginPage() {
   return (
     <div
     className='h-screen flex justify-center items-center bg-cover bg-center bg-no-repeat'
-    style={{ backgroundImage: "url('pngtree-modern-double-color-futuristic-neon-background-image_351866.jpg')" }}>
+    style={{ backgroundImage: "url('gradientimage.jpg')" }}>
 
       <form onSubmit={handleLogin} className=' flex flex-col w-[50%] m-auto justify-center items-center'>
 
