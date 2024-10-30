@@ -47,7 +47,7 @@ function HomePage() {
             Search
           </button>
         </div>
-        <h2 className="text-xl italic text-gray-600">"Readers are leaders."</h2>
+        <h2 className="text-xl italic bg-gradient-to-r from-blue-400 via-purple-500 to-pink-600 bg-clip-text text-transparent">"Readers are leaders."</h2>
       </header>
       <div className='grid-container'>
         {searchedBooks.length > 0 ? (
@@ -69,7 +69,7 @@ function HomePage() {
                     {book.author_name && book.author_name[0]}
                   </Link>
                 </p>
-                <Link to={`/book/${book.key.split('/').pop()}`} className='btn ml-[auto] bg-gradient-to-r from-blue-500 to-purple-500 text-white  py-2 px-4 rounded-md hover:from-blue-600 hover:to-purple-600 transition-all duration-300 mt-[20px] ">'>View Details</Link>
+                <Link to={`/book/${book.key.split('/').pop()}`} className='btn bg-gradient-to-r from-blue-500 to-purple-500 text-white  py-2 px-4 rounded-md hover:from-blue-600 hover:to-purple-600 transition-all duration-300 mt-[20px] ">'>View Details</Link>
               </div>
             </div>
           ))
