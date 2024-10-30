@@ -41,7 +41,7 @@ function LoginPage() {
         </div>
         <button
           type="submit"
-          className=" bg-[#9137ea] text-white py-2 rounded-md transition-colors w-[70px] m-[auto]">
+          className=" bg-gradient-to-r from-blue-500 to-purple-500 text-white  py-2 px-4 rounded-md hover:from-blue-600 hover:to-purple-600 transition-all duration-300 ml-[auto]">
 
           Login
         </button>

@@ -35,18 +35,18 @@ function HomePage() {
 
   return (
     <>
-      <header className="flex justify-between items-center mb-8  p-4 bg-gray-100  rounded-lg gap-[10px]">
-        <h1 className="text-3xl font-bold text-gray-800"> Library</h1>
+      <header className="flex justify-between items-center   p-4 bg-[#e4eafa]  rounded-lg gap-[10px]">
+        <h1 className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-600 bg-clip-text text-transparent text-4xl "> Library</h1>
         <div className="flex items-center space-x-2">
           <input
             type="text"
             placeholder="Search for books ..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-gray-500"
+            className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-1 focus:ring-[#a54ef1]"
           />
           <button
-            className="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition duration-200"
+            className="bg-gradient-to-r from-blue-500 to-purple-500 text-white  py-2 px-4 rounded-md hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
             onClick={handleSearch}
           >
             Search
@@ -62,7 +62,7 @@ function HomePage() {
             <div key={book.key} className='grid-item flex flex-col items-center justify-between border w-[100%] p-[10px] rounded-lg gap-[10px]'>
 
               {book.cover_i && (
-                <div className='h-[270px] w-[180px] overflow-hidden'>
+                <div className='h-[350px] w-[250px] overflow-hidden'>
                   <img
                     className='w-[100%] h-[100%] object-cover'
                     src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
@@ -73,16 +73,16 @@ function HomePage() {
               )}
               <div className='flex flex-col justify-center items-center gap-[2px] w-[100%]'>
 
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">{book.title}</h3>
+                <h3 className="text-2xl font-bold text-[#1E3A8A] mb-2">{book.title}</h3>
 
 
-                <p className="text-lg text-gray-600">
+                <p className="text-lg text-[#1E3A8A]">
                   <Link to={`/author/${book.author_name && book.author_name[0]}`}>
                     {book.author_name && book.author_name[0]}
                   </Link>
                 </p>
 
-                <Link to={`/book/${book.key.split('/').pop()}`} className='btn ml-[auto] bg-[black] text-white p-[7px] rounded-xl mt-[10px]'>View Details</Link>
+                <Link to={`/book/${book.key.split('/').pop()}`} className='btn ml-[auto] bg-gradient-to-r from-blue-500 to-purple-500 text-white  py-2 px-4 rounded-md hover:from-blue-600 hover:to-purple-600 transition-all duration-300 mt-[20px] ">'>View Details</Link>
               </div>
 
 
@@ -94,7 +94,7 @@ function HomePage() {
             <div key={book.key} className='grid-item flex flex-col items-center justify-between border w-[100%] p-[10px] rounded-lg gap-[10px]'>
 
               {book.cover_id && (
-                <div className='h-[270px] w-[180px] overflow-hidden'>
+                <div className='h-[370px] w-[225px] overflow-hidden'>
                   <img
                     className='w-[100%] h-[100%] object-cover'
                     src={`https://covers.openlibrary.org/b/id/${book.cover_id}-M.jpg`}
@@ -105,10 +105,10 @@ function HomePage() {
               )}
               <div className='flex flex-col justify-center items-center gap-[2px] w-[100%]'>
 
-                <h3 className="text-2xl font-bold text-gray-800 mb-2">{book.title}</h3>
-                <p className="text-lg text-gray-600">{book.author_name && book.author_name[0]}</p>
+                <h3 className="text-2xl font-bold mb-2 text-[#1E3A8A]">{book.title}</h3>
+                <p className="text-lg ">{book.author_name && book.author_name[0]}</p>
 
-                <Link to={`/book/${book.key.split('/').pop()}`} className='btn ml-[auto] bg-[black] text-white p-[7px] rounded-xl mt-[10px]'>View Details</Link>
+                <Link to={`/book/${book.key.split('/').pop()}`} className='bg-gradient-to-r from-blue-500 to-purple-500 text-white  py-2 px-4 rounded-md hover:from-blue-600 hover:to-purple-600 transition-all duration-300 mt-[20px]'>View Details</Link>
               </div>
             </div>
           ))

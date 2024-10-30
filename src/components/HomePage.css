@@ -5,16 +5,25 @@
   gap: 10px;
   justify-items: center; 
   align-items: center;   
-  grid-template-rows: 500px;
+  grid-template-rows: 600px;
  
   margin-left:10px;
   margin-right:10px;
 }
 .grid-item{
   width:300px;
-  height:430px;
-  border: 1.5px solid black;
+  height:530px;
+  border: 1px solid #e2e8f0; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; 
+  background-color: #e4eafa;
+  color: #ff0000;
 }
+  
+
+
 
 
 

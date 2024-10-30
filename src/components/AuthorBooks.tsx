@@ -30,12 +30,12 @@ const AuthorBooks: React.FC = () => {
 
   return (
     <div>
-      <h1 className="text-3xl font-bold text-center">Books by {name}</h1>
+      <h1 className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-600 bg-clip-text text-transparent text-4xl text-center">Books by {name}</h1>
       <div className="grid-container">
         {searchedBooks.map((book: Book) => (
           <div key={book.key} className="grid-item flex flex-col items-center justify-between border w-[100%] p-[10px] rounded-lg gap-[10px]">
             {book.cover_i && (
-              <div className="h-[270px] w-[180px] overflow-hidden">
+              <div className="h-[400px] w-[240px] overflow-hidden">
                 <img
                   className="w-[100%] h-[100%] object-cover"
                   src={`https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg`}
@@ -43,8 +43,8 @@ const AuthorBooks: React.FC = () => {
                 />
               </div>
             )}
-            <h3 className="text-2xl font-bold text-gray-800 mb-2">{book.title}</h3>
-            <p className="text-lg text-gray-600">{book.author_name && book.author_name[0]}</p>
+            <h3 className="text-2xl font-bold text-[#1E3A8A] mb-2">{book.title}</h3>
+            <p className="text-lg text-[#1E3A8A]">{book.author_name && book.author_name[0]}</p>
           </div>
         ))}
       </div>
