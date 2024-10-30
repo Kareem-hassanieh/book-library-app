@@ -32,8 +32,8 @@ const BookDetails: React.FC = () => {
 
       {book ? (
         <>
-          <h1 className='text-center font-bold mb-[30px] text-[30px]'>{book.title}</h1>
-          <div class="flex flex-col md:flex-row">
+          <h1 className='bg-gradient-to-r from-blue-400 via-purple-500 to-pink-600 bg-clip-text text-transparent text-4xl text-center mb-[50px]'>{book.title}</h1>
+          <div className="flex flex-col md:flex-row">
           {book.covers && (
             <div className='h-[500px] w-[350px] flex justify-center items-center m-auto '>
               <img className='h-[100%] w-[100%] object-cover rounded-lg'
@@ -46,7 +46,7 @@ const BookDetails: React.FC = () => {
           )}
           <div className='md:w-[50%] flex flex-col m-auto '>
           <p className='mt-[20px]' >{book.description}</p>
-          <button className='bg-[black] text-white w-[200px] ml-[auto] p-[10px] rounded-lg'>Add to favorites</button>
+          <button className='bg-gradient-to-r from-blue-500 to-purple-500 text-white  py-2 px-4 w-[150px] hover:from-blue-600 hover:to-purple-600 transition-all duration-300 rounded-lg ml-[auto] mt-[30px]'>Add to favorites</button>
 
           </div>
           
